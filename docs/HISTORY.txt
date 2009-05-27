@@ -1,10 +1,10 @@
 Changelog
 =========
 
-0.1.1 (unreleased)
+0.1.1 (2009-05-27)
 ------------------
 
-- Nothing changed yet.
+- Fix utility registration with grok
 
 
 0.1 (2009-05-24)
