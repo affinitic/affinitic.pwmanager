@@ -25,6 +25,8 @@ class PasswordManager(object):
 
     def registerFromFile(self, filename, name, separator=':'):
         var = os.environ.get('CLIENT_HOME')
+        if var is None:
+            raise "Can't find CLIENT_HOME in your environment ... export it before execute this script"
         var = os.path.abspath(os.path.join(var, os.path.pardir))
         filepath = os.path.join(var, filename)
         try:
