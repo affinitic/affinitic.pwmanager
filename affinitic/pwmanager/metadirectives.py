@@ -7,7 +7,7 @@ Copyright by Affinitic sprl
 
 $Id: event.py 67630 2006-04-27 00:54:03Z jfroche $
 """
-from zope.schema import TextLine
+from zope.schema import TextLine, Bool
 from zope.interface import Interface
 
 
@@ -20,7 +20,7 @@ class IPwdFileDirective(Interface):
         title=u"Name of the file containing the login/pass information",
         description=u"""This file needs to be created at the INSTANCE/var
         level.""",
-        required=True,
+        required=False,
         )
 
     name = TextLine(
@@ -31,5 +31,15 @@ class IPwdFileDirective(Interface):
 
     separator = TextLine(
         title=u"Separtor char which split the login with the password",
+        description=u"",
+        required=False)
+
+    filepath = TextLine(
+        title=u"Filename with its complete path",
+        description=u"",
+        required=False)
+
+    required = Bool(
+        title=u"Does the file needs to exists ?",
         description=u"",
         required=False)

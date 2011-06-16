@@ -12,7 +12,7 @@ from affinitic.pwmanager.interfaces import IPasswordManager
 from zope.component import provideUtility
 
 
-def pwdFile(_context, filename, name, separator=':'):
+def pwdFile(_context, name, filename=None, separator=':', filepath=None, required=True):
     pwManager = PasswordManager()
-    pwManager.registerFromFile(filename, name, separator)
+    pwManager.registerFromFile(filename, name, separator, filepath, required)
     provideUtility(pwManager, IPasswordManager, name)

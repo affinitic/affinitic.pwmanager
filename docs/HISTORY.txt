@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.2 (unreleased)
+----------------
+
+- Add full path parameter and required parameter
+- Use PASSWORD_DIR
+
 0.1.1 (2009-05-27)
 ------------------
 

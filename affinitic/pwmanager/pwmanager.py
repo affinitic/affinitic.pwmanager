@@ -20,26 +20,37 @@ class PasswordManager(object):
 
     def __init__(self):
         self.name = ""
-        self.username = ""
-        self.password = ""
+        self.username = None
+        self.password = None
 
-    def registerFromFile(self, filename, name, separator=':'):
-        var = os.environ.get('CLIENT_HOME')
-        if var is None:
-            raise "Can't find CLIENT_HOME in your environment ... export it before execute this script"
-        var = os.path.abspath(os.path.join(var, os.path.pardir))
-        filepath = os.path.join(var, filename)
+    def _getFile(self, filename, filepath):
+        if filepath is None:
+            var = os.environ.get('PASSWORD_DIR')
+            if var is None:
+                var = os.environ.get('CLIENT_HOME')
+                if var is None:
+                    raise "Can't find PASSWORD_DIR or CLIENT_HOME in your environment ... export it before execute this script"
+                var = os.path.abspath(os.path.join(var, os.path.pardir))
+            filepath = os.path.join(var, filename)
         try:
             fd = open(filepath, 'r')
         except:
-            raise IOError("Can't open password file: %s" % filepath)
-        data = fd.read()
-        data.strip()
-        if separator not in data:
-            raise Exception("Can't find separator %s in password file %s" % (separator,
-                                                                              filepath))
-        login, password = data.split(separator)
-        self.register(name, login.strip(), password.strip())
+            fd = None
+        return fd
+
+    def registerFromFile(self, filename, name, separator, filepath, required):
+        fd = self._getFile(filename, filepath)
+        if fd is None:
+            if required == True:
+                raise IOError("Can't open password file: %s" % filepath)
+        else:
+            data = fd.read()
+            data.strip()
+            if separator not in data:
+                raise Exception("Can't find separator %s in password file %s" % (separator,
+                                                                                  filepath))
+            login, password = data.split(separator)
+            self.register(name, login.strip(), password.strip())
 
     def register(self, name, username, password):
         self.name = name
