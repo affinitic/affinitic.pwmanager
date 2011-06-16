@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2 (unreleased)
+0.2 (2011-06-16)
 ----------------
 
 - Add full path parameter and required parameter
