@@ -4,7 +4,7 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add filename in errors raised
 
 
 0.2 (2011-06-16)

@@ -42,13 +42,14 @@ class PasswordManager(object):
         fd = self._getFile(filename, filepath)
         if fd is None:
             if required == True:
-                raise IOError("Can't open password file: %s" % filepath)
+                raise IOError("Can't open password file: %s %s" % (filepath, filename))
         else:
             data = fd.read()
             data.strip()
             if separator not in data:
-                raise Exception("Can't find separator %s in password file %s" % (separator,
-                                                                                  filepath))
+                raise Exception("Can't find separator %s in password file %s %s" % (separator,
+                                                                                    filepath,
+                                                                                    filename))
             login, password = data.split(separator)
             self.register(name, login.strip(), password.strip())
 
