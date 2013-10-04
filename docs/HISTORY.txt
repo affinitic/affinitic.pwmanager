@@ -4,7 +4,7 @@ Changelog
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Move file pass in CLIENT_HOME/../pass folder refs #5769
 
 
 0.3 (2013-09-28)

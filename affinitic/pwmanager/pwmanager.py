@@ -30,7 +30,8 @@ class PasswordManager(object):
                 var = os.environ.get('CLIENT_HOME')
                 if var is None:
                     raise "Can't find PASSWORD_DIR or CLIENT_HOME in your environment ... export it before execute this script"
-                var = os.path.abspath(os.path.join(var, os.path.pardir))
+                var = os.path.join(var, os.path.pardir)
+                var = os.path.abspath(os.path.join(var, 'pass'))
             filepath = os.path.join(var, filename)
         try:
             fd = open(filepath, 'r')
