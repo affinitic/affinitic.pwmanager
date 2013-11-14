@@ -5,6 +5,7 @@ Changelog
 ----------------
 
 - Move file pass in CLIENT_HOME/../pass folder refs #5769
+- Override PasswordManager for testing refs #6011
 
 
 0.3 (2013-09-28)
