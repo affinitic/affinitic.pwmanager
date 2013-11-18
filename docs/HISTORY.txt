@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4 (unreleased)
+0.4 (2013-11-18)
 ----------------
 
 - Move file pass in CLIENT_HOME/../pass folder refs #5769
