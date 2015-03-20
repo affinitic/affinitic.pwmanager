@@ -33,6 +33,9 @@ class PasswordManager(object):
                 var = os.path.join(var, os.path.pardir)
                 var = os.path.abspath(os.path.join(var, 'pass'))
             filepath = os.path.join(var, filename)
+
+        # Expand the tilde
+        filepath = os.path.expanduser(filepath)
         try:
             fd = open(filepath, 'r')
         except:
