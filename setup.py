@@ -7,11 +7,11 @@ setup(name='affinitic.pwmanager',
       version=version,
       description="Password manager utility",
       long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+      ],
       keywords='',
       author='Affinitic',
       author_email='jfroche@affinitic.be',
@@ -25,4 +25,6 @@ setup(name='affinitic.pwmanager',
           'setuptools',
           'zope.component',
           'zope.interface'
-      ])
+      ],
+      extras_require=dict(test=[])
+      )
